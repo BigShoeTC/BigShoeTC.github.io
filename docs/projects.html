@@ -35,7 +35,7 @@
             <a href="images\Resume Sebastian Zapata.pdf" target="_blank" class="navbar__links">Resume</a>
           </li>
           <li class="navbar__btn">
-            <a href="/sign-up" class="button">Contact Me</a>
+            <a href="tech.html" class="button">Contact Me</a>
           </li>
         </ul>
       </div>
@@ -49,8 +49,12 @@
          <div id="popup1" class="popup">
             <div class="popup-content">
               <span class="close">&times;</span>
-              <h2>This is a Popup</h2>
-              <p>Some content in the popup goes here.
+              <h2>Vehicle Cntrol Unit</h2>
+              <p>This board is mainly used for distributing power to and controlling auxillary systems such as lights, fans, pumps, and other boards. It also has an IMU using isoSPI, CAN transceiver
+                , a GPS module using UART, and a coolant sensor.<br> It's key design feature is being able to handle high current as as much as 40A
+                may pass through it. <br> I designed schematics for the board, such as the power conversion sheet, the parent sheet, the connector sheet, power dist. sheet, and more.
+                <br> I also layed out the board in its entirety being concious of signal degradation and accuracy in ares such as the usb-c connector and micro controller. Also, the current sensing for this board
+                is susceptible to inaccuracies due to the high current passing so that was a consideration.
                 <div class="proj__img-container">
                     <img id="proj__img" src="images\1737957889332.jpg" />
                   </div>
@@ -59,6 +63,12 @@
                   </div>
                 <div class="proj__img-container">
                     <img id="proj__img" src="images\IMG_4455.JPG" />
+                  </div>
+                <div class="proj__img-container">
+                    <img id="proj__img" src="images\unnamed.jpg" />
+                  </div>
+                <div class="proj__img-container">
+                    <img id="proj__img" src="images\unnamed (1).jpg" />
                   </div>
                 <div class="proj__img-container">
                     <img id="proj__img" src="images\mainschem.png" />
@@ -101,13 +111,25 @@
          <div id="popup2" class="popup">
             <div class="popup-content">
               <span class="close">&times;</span>
-              <h2>This is a Popup2</h2>
-              <p>Some content in the popup goes here.
+              <h2>Steering Rack Board</h2>
+              <p> I wrote firmware, debugged, and tested a Steering encoder board that uses a magnet at the end of the steering assembly
+                which is detected by a hall effect sensor on the board.<br>
+                 I wrote code and set up files using STMCubeMX, and STMCubeProgrammer enabling USB VCP and flashing, and wrote an algorithim to get accurate
+                 angles based on the magnet's orientation.
                 <div class="proj__img-container">
                     <img id="proj__img" src="images\IMG_4517-ezgif.com-speed.gif" />
                   </div>
                   <div class="proj__img-container">
                     <img id="proj__img" src="images\IMG_4515.gif" />
+                  </div>
+                  <div class="proj__img-container">
+                    <img id="proj__img" src="images\Screenshot 2025-02-03 233402.png" />
+                  </div>
+                  <div class="proj__img-container">
+                    <img id="proj__img" src="images\unnamed (3).jpg" />
+                  </div>
+                  <div class="proj__img-container">
+                    <img id="proj__img" src="images\unnamed (4).jpg" />
                   </div>
               </p>
             </div>
@@ -123,8 +145,16 @@
          <div id="popup3" class="popup">
             <div class="popup-content">
               <span class="close">&times;</span>
-              <h2>This is a Popup3</h2>
-              <p>Some content in the popup goes here.</p>
+              <h2>High Speed 3D-Printed RC Car</h2>
+              <p>I designed a 2-foot long 3D-Printed RC Car with 3 open differentials and a transfer case, the goal is 70mph, and I'm actively assembling the prints.
+                 <br>The Electronics include, an RF module, Arduino Nano, 100A ESC, a 2700 Kv brushless 3 phase motor, a 6s Lipo, a custom transmitter w/ joysticks, and a 20kg-torque Servo.
+                 <div class="proj__img-container">
+                  <img id="proj__img" src="images\Screenshot 2025-02-02 171341.png" />
+                </div>
+                 <div class="proj__img-container">
+                  <img id="proj__img" src="images\Screenshot 2025-02-03 232033.png" />
+                </div>
+                </p>
             </div>
           </div> 
         </div>
@@ -138,8 +168,22 @@
           <div id="popup4" class="popup">
              <div class="popup-content">
                <span class="close">&times;</span>
-               <h2>This is a Popup4</h2>
-               <p>Some content in the popup goes here.</p>
+               <h2>Dashboard for FSAE</h2>
+               <p>I designed a waterproof enclosure for electronics on the UI making sure every systems
+                needs were met while not encroaching on space and workign within requirements
+                <div class="proj__img-container">
+                  <img id="proj__img" src="images\image (1).png" />
+                </div>
+                <div class="proj__img-container">
+                  <img id="proj__img" src="images\image.png" />
+                </div>
+                <div class="proj__img-container">
+                  <img id="proj__img" src="images\images\unnamed (5).jpg" />
+                </div>
+                <div class="proj__img-container">
+                  <img id="proj__img" src="images\image (3).png" />
+                </div>
+               </p>
              </div>
            </div> 
         </div>
@@ -149,12 +193,13 @@
         <div class="proj__content">
           <h1>TAR Drone</h1>
           <p>TAR</p>
-          <button class="proj__btn" data-popup="popup4" >Peep</button>
-          <div id="popup4" class="popup">
+          <button class="proj__btn" data-popup="popup5" >Peep</button>
+          <div id="popup5" class="popup">
              <div class="popup-content">
                <span class="close">&times;</span>
-               <h2>This is a Popup4</h2>
-               <p>Some content in the popup goes here.</p>
+               <h2>Autonomous Drone</h2>
+               <p>I designed the waterproof printable enclosure for a large autonomus drone meant to carry up and drop a self landong monocopter, I did some work desiging a flight controller
+                and speccing components that fit the drones needs.</p>
              </div>
            </div> 
         </div>
@@ -164,12 +209,34 @@
         <div class="proj__content">
           <h1>FRC CAD</h1>
           <p>FRC</p>
-          <button class="proj__btn" data-popup="popup4" >Peep</button>
-          <div id="popup4" class="popup">
+          <button class="proj__btn" data-popup="popup6" >Peep</button>
+          <div id="popup6" class="popup">
              <div class="popup-content">
                <span class="close">&times;</span>
-               <h2>This is a Popup4</h2>
-               <p>Some content in the popup goes here.</p>
+               <h2>FIRST Robotics CAD</h2>
+               <p>I led the design of subsystems of a competition robot, particularly with the shooter, intake, and their respective mounts.
+                <br> A lot of the design work revolved around quickly iterating as theres an incredibly short design window of about 2 weeks including
+                prototyping and ideation <br> I was also the main driver of the robot during competition at which I worked with other teams and my drive team
+                to maximize our match efficency through coordination and teamwork. <br> We went on to nearly upset the reigning state champions, NASA, and Robochargers, with
+                whom we had one the State championship with the prior year losing 110-108 in the state semi finals. <br> At the world champinoship in Houstin, <b>we were statistically the best
+                passing robot in the world</b>, and were selected by then reigning world champions, 4414 HighTide. Through FRC I learned alot about working with others
+                project deadlines, CAD design, and leadership.
+                <div class="proj__img-container">
+                  <img id="proj__img" src="images\robot1.png" />
+                </div>
+                <div class="proj__img-container">
+                  <img id="proj__img" src="images\robot2.png" />
+                </div>
+                <div class="proj__img-container">
+                  <img id="proj__img" src="images\robot3.png" />
+                </div>
+                <div class="proj__img-container">
+                  <img id="proj__img" src="images\shooterss.png" />
+                </div>
+                <div class="proj__img-container">
+                  <img id="proj__img" src="images\intakess.png" />
+                </div>
+               </p>
              </div>
            </div> 
         </div>
@@ -179,8 +246,8 @@
         <div class="proj__content">
           <h1>Vex Robot</h1>
           <p>Vex</p>
-          <button class="proj__btn" data-popup="popup4" >Peep</button>
-          <div id="popup4" class="popup">
+          <button class="proj__btn" data-popup="popup7" >Peep</button>
+          <div id="popup7" class="popup">
              <div class="popup-content">
                <span class="close">&times;</span>
                <h2>This is a Popup4</h2>
@@ -191,6 +258,28 @@
         <div class="proj__img-container">
           <img id="proj__img" src="images\1724909878304.jpg" />
         </div>
+        <div class="proj__content">
+          <h1>Portfolio </h1>
+          <p>HTML Website</p>
+          <button class="proj__btn" data-popup="popup8" >Peep</button>
+          <div id="popup8" class="popup">
+             <div class="popup-content">
+               <span class="close">&times;</span>
+               <h2>I made this website :P</h2>
+               <p>Using HTML, CSS, and JavaScript, around 1900 lines of total code, alot of its repeated lol
+                <div class="proj__img-container">
+                  <img id="proj__img" src="images\Screenshot 2025-02-03 230455.png" />
+                </div>
+                <div class="proj__img-container">
+                  <img id="proj__img" src="images\Screenshot 2025-02-03 230650.png" />
+                </div>
+               </p>
+             </div>
+           </div> 
+        </div>
+        <div class="proj__img-container">
+          <img id="proj__img" src="images\Screenshot 2025-02-03 230455.png" />
+        </div>
       </div>
     </div>
    <!-- Footer Section -->
@@ -199,7 +288,7 @@
       <div class="footer__link--wrapper">
         <div class="footer__link--items">
           <h2>Contact Me</h2>
-          <a href="/">E-Mail</a> <a href="/">Phone</a>
+          <a href="tech.html">E-Mail</a> <a href="tech.html">Phone</a>
           <a href="/">About Me</a>
         </div>
       </div>

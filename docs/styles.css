@@ -406,6 +406,65 @@
     text-align: center;
     font-family: Arial, sans-serif;
   }
+/* contact me */
+
+.contme__container {
+  display:flex;
+  align-items: center;
+  justify-self: center;
+  margin: 0 auto;
+  height: 90vh;
+  background-color: #131313;
+  z-index: 1;
+  width: 100%;
+  max-width: 1300px;
+  padding-right: 50px;
+  padding-left: 50px;
+}
+
+.contme__content {
+  color: #fff;
+  width: 100%;
+}
+
+.contme__content h1 {
+  font-size: 4rem;
+  background-color: #BF5700;
+  background-image: linear-gradient(to top, #BF5700 0%, #ffb199 100%);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+.contme__content h2 {
+  font-size: 4rem;
+  margin-top: 10px;
+  background-color: #BF5700;
+  background-image: linear-gradient(-20deg, #BF5700 0%, #fd21e0 100%);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+.contme__content p {
+  margin-top: 1rem;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.sub2__img__container {
+  display: inline;
+  vertical-align: middle;
+}
+
+#sub2__img {
+  height: 4rem;
+  width: 4rem;
+}
 
   /* projects */
  .proj {

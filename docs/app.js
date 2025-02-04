@@ -154,14 +154,14 @@ function drawGame() {
 
   // Draw start message
   if (!started) {
-    ctx.fillStyle = "purple";
+    ctx.fillStyle = "white";
     ctx.font = "32px Helvetica";
     ctx.fillText("PRESS SPACE TO PLAY", canvas.width / 2 - 165, canvas.height / 2+100);
     ctx.fillText("USE ARROW KEYS", canvas.width / 2 - 150, canvas.height / 2+150);
   }
 
   // Draw score
-  ctx.fillStyle = "purple";
+  ctx.fillStyle = "white";
   ctx.font = "32px Arial";
   ctx.fillText(`Score: ${snakeLength}`, 15, 40);
 }
