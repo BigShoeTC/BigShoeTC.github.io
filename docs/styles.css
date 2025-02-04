@@ -411,8 +411,8 @@
   }
  @media (max-width: 1000px) {
  #gameCanvas {
-    width: 512px; /* Scale canvas width to 90% of viewport width */
-    height: 512px; /* Maintain aspect ratio */
+    width: 90%; 
+    height: 90%; 
   }}
   canvas {
     display: block;
@@ -796,53 +796,29 @@
     width: 80%;
   }
 
-  @media screen and (max-width: 960px) {
-    .services {
-      height: 1600px;
-    
-    }
-  
-    .services h1 {
-      font-size: 2rem;
-      margin-top: 12rem;
-    }
-  }
 
-
-  @media (max-width:1300px) {
+  @media screen and (max-width:1300px) {
 
     .services__container {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: auto;
       gap: 1rem;
       transition:all 1s;
     }
     
   }
-  @media (max-width:1300px) {
+  @media screen and (max-width:1300px) {
 
     .services {
       height:150vh;
     }
-    
-  }
- 
-  
-  @media screen and (max-width: 480px) {
-    .services {
-      height: 1400px;
-    }
-
-   
-   
-  
-    .services h1 {
-      font-size: 1.2rem;
+        .services h1 {
+      font-size: 3rem;
     }
   
     .services__card {
-      width: 300px;
-    }
+      width: 400px;
+  }
   }
   
   /* Footer CSS */

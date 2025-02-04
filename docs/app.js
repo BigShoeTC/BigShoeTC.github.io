@@ -57,128 +57,167 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /* snek script */
   const canvas = document.getElementById("gameCanvas");
-const ctx = canvas.getContext("2d");
-
-if (window.location.pathname.endsWith("resume.html")) {
-  document.addEventListener("keydown", function (event) {
-    if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", " "].includes(event.key)) {
-      event.preventDefault();
+  const ctx = canvas.getContext("2d");
+  
+  if (window.location.pathname.endsWith("resume.html")) {
+    document.addEventListener("keydown", function (event) {
+      if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", " "].includes(event.key)) {
+        event.preventDefault();
+      }
+    });
+  }
+  
+  let lastUpdateTime = 0; // Tracks the last time the game updated
+  const updateInterval = 100; // Time (in milliseconds) between updates
+  
+  const GRID_SIZE = 16;
+  const TILE_SIZE = canvas.width / GRID_SIZE;
+  
+  let snake = [{ x: 8, y: 8 }];
+  let velocity = { x: 0, y: 0 };
+  let collect = { x: 11, y: 3 };
+  let snakeLength = 1;
+  let started = false;
+  
+  document.addEventListener("keydown", (event) => {
+    switch (event.key) {
+      case "ArrowRight":
+        if (velocity.x === 0) velocity = { x: 1, y: 0 };
+        break;
+      case "ArrowLeft":
+        if (velocity.x === 0) velocity = { x: -1, y: 0 };
+        break;
+      case "ArrowUp":
+        if (velocity.y === 0) velocity = { x: 0, y: -1 };
+        break;
+      case "ArrowDown":
+        if (velocity.y === 0) velocity = { x: 0, y: 1 };
+        break;
+      case " ":
+        if (!started) started = true;
+        break;
+      case "r":
+        resetGame();
+        break;
     }
   });
-}
-
-let lastUpdateTime = 0; // Tracks the last time the game updated
-const updateInterval = 100; // Time (in milliseconds) between updates
-
-const GRID_SIZE = 16;
-const TILE_SIZE = canvas.width / GRID_SIZE;
-
-let snake = [{ x: 8, y: 8 }];
-let velocity = { x: 0, y: 0 };
-let collect = { x: 11, y: 3 };
-let snakeLength = 1;
-let started = false;
-
-document.addEventListener("keydown", (event) => {
-  switch (event.key) {
-    case "ArrowRight":
-      if (velocity.x === 0) velocity = { x: 1, y: 0 };
-      break;
-    case "ArrowLeft":
-      if (velocity.x === 0) velocity = { x: -1, y: 0 };
-      break;
-    case "ArrowUp":
-      if (velocity.y === 0) velocity = { x: 0, y: -1 };
-      break;
-    case "ArrowDown":
-      if (velocity.y === 0) velocity = { x: 0, y: 1 };
-      break;
-    case " ":
-      if (!started) started = true;
-      break;
-    case "r":
-      resetGame();
-      break;
+  
+  // Mobile controls
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let touchEndX = 0;
+  let touchEndY = 0;
+  
+  canvas.addEventListener("touchstart", (e) => {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  
+    // Start the game on tap
+    if (!started) {
+      started = true;
+    }
+  });
+  
+  canvas.addEventListener("touchend", (e) => {
+    touchEndX = e.changedTouches[0].clientX;
+    touchEndY = e.changedTouches[0].clientY;
+  
+    const dx = touchEndX - touchStartX;
+    const dy = touchEndY - touchStartY;
+  
+    // Determine swipe direction
+    if (Math.abs(dx) > Math.abs(dy)) {
+      // Horizontal swipe
+      if (dx > 0 && velocity.x === 0) {
+        velocity = { x: 1, y: 0 }; // Swipe right
+      } else if (dx < 0 && velocity.x === 0) {
+        velocity = { x: -1, y: 0 }; // Swipe left
+      }
+    } else {
+      // Vertical swipe
+      if (dy > 0 && velocity.y === 0) {
+        velocity = { x: 0, y: 1 }; // Swipe down
+      } else if (dy < 0 && velocity.y === 0) {
+        velocity = { x: 0, y: -1 }; // Swipe up
+      }
+    }
+  });
+  
+  function resetGame() {
+    snake = [{ x: 8, y: 8 }];
+    velocity = { x: 0, y: 0 };
+    collect = { x: 11, y: 3 };
+    snakeLength = 1;
+    started = false;
   }
-});
-
-function resetGame() {
-  snake = [{ x: 8, y: 8 }];
-  velocity = { x: 0, y: 0 };
-  collect = { x: 11, y: 3 };
-  snakeLength = 1;
-  started = false;
-}
-
-function updateGame() {
-  if (!started) return;
-
-  // Move the snake
-  const head = { x: snake[0].x + velocity.x, y: snake[0].y + velocity.y };
-  head.x = (head.x + GRID_SIZE) % GRID_SIZE;
-  head.y = (head.y + GRID_SIZE) % GRID_SIZE;
-  snake.unshift(head);
-
-  // Handle collecting
-  if (head.x === collect.x && head.y === collect.y) {
-    snakeLength++;
-    collect = { x: Math.floor(Math.random() * GRID_SIZE), y: Math.floor(Math.random() * GRID_SIZE) };
-  }
-
-  // Trim the snake to its length
-  while (snake.length > snakeLength) {
-    snake.pop();
-  }
-
-  // Check for self-collision
-  for (let i = 1; i < snake.length; i++) {
-    if (snake[i].x === head.x && snake[i].y === head.y) {
-      resetGame();
+  
+  function updateGame() {
+    if (!started) return;
+  
+    // Move the snake
+    const head = { x: snake[0].x + velocity.x, y: snake[0].y + velocity.y };
+    head.x = (head.x + GRID_SIZE) % GRID_SIZE;
+    head.y = (head.y + GRID_SIZE) % GRID_SIZE;
+    snake.unshift(head);
+  
+    // Handle collecting
+    if (head.x === collect.x && head.y === collect.y) {
+      snakeLength++;
+      collect = { x: Math.floor(Math.random() * GRID_SIZE), y: Math.floor(Math.random() * GRID_SIZE) };
+    }
+  
+    // Trim the snake to its length
+    while (snake.length > snakeLength) {
+      snake.pop();
+    }
+  
+    // Check for self-collision
+    for (let i = 1; i < snake.length; i++) {
+      if (snake[i].x === head.x && snake[i].y === head.y) {
+        resetGame();
+      }
     }
   }
-}
-
-function drawGame() {
-  ctx.fillStyle = "black";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-  // Draw the snake
-  snake.forEach((segment, index) => {
-    ctx.fillStyle = index % 2 === 0 ? "green" : "yellow";
-    ctx.fillRect(segment.x * TILE_SIZE, segment.y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
-  });
-
-  // Draw the collectable
-  ctx.fillStyle = "red";
-  ctx.fillRect(collect.x * TILE_SIZE, collect.y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
-
-  // Draw start message
-  if (!started) {
+  
+  function drawGame() {
+    ctx.fillStyle = "black";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  
+    // Draw the snake
+    snake.forEach((segment, index) => {
+      ctx.fillStyle = index % 2 === 0 ? "green" : "yellow";
+      ctx.fillRect(segment.x * TILE_SIZE, segment.y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+    });
+  
+    // Draw the collectable
+    ctx.fillStyle = "red";
+    ctx.fillRect(collect.x * TILE_SIZE, collect.y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+  
+    // Draw start message
+    if (!started) {
+      ctx.fillStyle = "white";
+      ctx.font = "32px Helvetica";
+      ctx.fillText("PRESS SPACE TO PLAY", canvas.width / 2 - 165, canvas.height / 2 + 100);
+      ctx.fillText("USE ARROW KEYS", canvas.width / 2 - 150, canvas.height / 2 + 150);
+    }
+  
+    // Draw score
     ctx.fillStyle = "white";
-    ctx.font = "32px Helvetica";
-    ctx.fillText("PRESS SPACE TO PLAY", canvas.width / 2 - 165, canvas.height / 2+100);
-    ctx.fillText("USE ARROW KEYS", canvas.width / 2 - 150, canvas.height / 2+150);
+    ctx.font = "32px Arial";
+    ctx.fillText(`Score: ${snakeLength}`, 15, 40);
   }
-
-  // Draw score
-  ctx.fillStyle = "white";
-  ctx.font = "32px Arial";
-  ctx.fillText(`Score: ${snakeLength}`, 15, 40);
-}
-
-function gameLoop(timestamp) {
-  // Only update the game if enough time has passed
-  if (timestamp - lastUpdateTime >= updateInterval) {
-    lastUpdateTime = timestamp;
-    updateGame();
+  
+  function gameLoop(timestamp) {
+    // Only update the game if enough time has passed
+    if (timestamp - lastUpdateTime >= updateInterval) {
+      lastUpdateTime = timestamp;
+      updateGame();
+    }
+  
+    drawGame(); // Draw the game every frame for smooth visuals
+    requestAnimationFrame(gameLoop);
   }
-
-  drawGame(); // Draw the game every frame for smooth visuals
-  requestAnimationFrame(gameLoop);
-}
-
-
-resetGame();
-gameLoop();
-
-});
+  
+  resetGame();
+  gameLoop();
+});  
