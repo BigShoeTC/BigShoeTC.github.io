@@ -839,10 +839,10 @@
       width: 400px;
   }
   }
-  @media screen and (max-width:500px) {
+  @media screen and (max-width:600px) {
 
     .services {
-      height:230vh;
+      height:300vh;
     }
         .services h1 {
       font-size: 2.5rem;
