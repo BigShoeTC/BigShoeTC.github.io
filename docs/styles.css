@@ -301,6 +301,10 @@
   #main__img {
     height: 80%;
     width: 80%;
+
+    margin: 0 auto;
+    display: block; /* Makes sure image behaves like a block element */
+  clear: both; /* Prevents overlap with other elements */
   }
   .sub__img--container {
     text-align: center;
@@ -839,7 +843,7 @@
       width: 400px;
   }
   }
-  @media screen and (max-width:600px) {
+  @media screen and (max-width:500px) {
 
     .services {
       height:300vh;
