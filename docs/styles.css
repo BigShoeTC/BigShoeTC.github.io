@@ -409,10 +409,10 @@
     display: block;
     margin: 0 auto;
   }
- @media (max-width: 600px) {
+ @media (max-width: 1000px) {
  #gameCanvas {
-    width: 90vw; /* Scale canvas width to 90% of viewport width */
-    height: 90vw; /* Maintain aspect ratio */
+    width: 512px; /* Scale canvas width to 90% of viewport width */
+    height: 512px; /* Maintain aspect ratio */
   }}
   canvas {
     display: block;
@@ -633,12 +633,12 @@
   
   /* Close button */
   .close {
-    color: #BF5700;
+    color: #090909;
     font-size: 75px;
     font-weight: bold;
     position: absolute;
-    top: 10px;
-    right: 50px;
+    top: 0px;
+    right: 30px;
     cursor: pointer;
   }
   
@@ -809,7 +809,7 @@
   }
 
 
-  @media (max-width:700px) {
+  @media (max-width:1300px) {
 
     .services__container {
       display: flex;
@@ -819,7 +819,13 @@
     }
     
   }
+  @media (max-width:1300px) {
 
+    .services {
+      height:150vh;
+    }
+    
+  }
  
   
   @media screen and (max-width: 480px) {
