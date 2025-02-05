@@ -486,7 +486,7 @@
   width: 4rem;
 }
 
-@media screen and (max-width: 500px){
+@media screen and (max-width: 700px){
 
   .contme__container{
     display: grid;
@@ -613,13 +613,19 @@
   @media screen and (max-width: 800px) {
     
     .proj__content h1 {
-      font-size: clamp(2rem,7vw, 4rem)
+      font-size: clamp(1.5rem,5vw, 4rem)
     }
     .proj__content h2 {
-      font-size: clamp(2rem,7vw, 4rem)
+      font-size: clamp(1.5rem,5vw, 4rem)
     }
     .proj__content p {
       font-size: clamp(0.5rem,7vw, 1rem)
+    }
+    .proj__btn{
+padding: 5% 5%;
+margin-top: 1rem;
+margin-bottom: 1rem;
+font-size: 90%;
     }
 
   }
