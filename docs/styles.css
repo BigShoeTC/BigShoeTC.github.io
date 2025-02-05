@@ -388,6 +388,7 @@
     .snek__container {
       display: flex;
       flex-direction: column;
+      height: 90vh;
     }
     
   }
@@ -407,8 +408,8 @@
     -moz-text-fill-color: transparent;
   }
   #gameCanvas {
-    width: 768px; /* Full size for larger screens */
-    height: 768px;
+    width: 512px; /* Full size for larger screens */
+    height: 512px;
     display: block;
     margin: 0 auto;
   }
