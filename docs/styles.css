@@ -301,7 +301,6 @@
   #main__img {
     height: 80%;
     width: 80%;
-
     margin: 0 auto;
     display: block; /* Makes sure image behaves like a block element */
   clear: both; /* Prevents overlap with other elements */
@@ -324,7 +323,7 @@
       justify-self: center;
       width: 100%;
       margin: 0 auto;
-      height: 90vh;
+      height: 65vh;
     }
   
     .main__content {
@@ -485,6 +484,14 @@
 #sub2__img {
   height: 4rem;
   width: 4rem;
+}
+
+@media screen and (max-width: 500px){
+
+  .contme__container{
+    display: grid;
+    grid-template-rows: auto;
+  }
 }
 
   /* projects */
@@ -846,7 +853,7 @@
   @media screen and (max-width:500px) {
 
     .services {
-      height:300vh;
+      height:250vh;
     }
         .services h1 {
       font-size: 2.5rem;
